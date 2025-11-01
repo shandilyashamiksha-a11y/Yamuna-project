@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YARI - Yamuna River Initiative</title>
+<style>
+ body {
+   margin:0;
+   font-family: 'Poppins', sans-serif;
+   background: linear-gradient(120deg,#0d47a1,#1976d2,#42a5f5);
+   color:white;
+ }
+ header {
+   background: rgba(0,0,0,0.2);
+   padding:15px;
+   text-align:center;
+   font-size:24px;
+   font-weight:600;
+ }
+ nav {
+   display:flex;
+   justify-content:center;
+   gap:20px;
+   background:#003f7f;
+   padding:10px;
+ }
+ nav a {
+   color:white;
+   text-decoration:none;
+   font-weight:600;
+   padding:6px 12px;
+   border-radius:6px;
+   transition:0.3s;
+ }
+ nav a:hover { background:#ffca28; color:black; }
+ .section { padding:25px; display:none; }
+ .active { display:block; }
+ .quiz-box{
+  background:white;
+  color:black;
+  padding:20px;
+  border-radius:12px;
+  max-width:600px;
+  margin:0 auto;
+ }
+ button{
+  padding:10px 18px;
+  background:#ff9800;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  margin-top:12px;
+ }
+ button:hover{ background:#e65100; }
+ .result{font-size:20px;font-weight:700;margin-top:15px;}
+</style>
+</head>
+<body>
+<header>🌊 YARI - Yamuna River Initiative</header>
+<nav>
+ <a onclick="showPage('home')">Home</a>
+ <a onclick="showPage('about')">About YARI</a>
+ <a onclick="showPage('quiz')">Yamuna Quiz</a>
+ <a onclick="showPage('ideas')">Share Ideas</a>
+</nav><div id="home" class="section active">
+ <h2>Welcome to YARI!</h2>
+ <p>Learn about Yamuna 🏞️ and participate in activities to keep it clean.</p>
+</div><div id="about" class="section">
+ <h2>About YARI</h2>
+ <p>YARI stands for <b>Yamuna River Initiative</b> — a project by The Modern School to make students aware of the Yamuna River, its history, importance, and how we can protect our river for the future. 🌿</p>
+</div><div id="quiz" class="section">
+ <h2>🧠 Yamuna River Quiz</h2>
+ <div class="quiz-box">
+   <p><b>1️⃣ Where does the Yamuna originate from?</b></p>
+   <input type="radio" name="q1" value="Yamunotri"> Yamunotri<br>
+   <input type="radio" name="q1" value="Rishikesh"> Rishikesh<br>
+   <input type="radio" name="q1" value="Delhi"> Delhi<br><br>   <p><b>2️⃣ Which city does Yamuna NOT flow through?</b></p>
+   <input type="radio" name="q2" value="Agra"> Agra<br>
+   <input type="radio" name="q2" value="Mathura"> Mathura<br>
+   <input type="radio" name="q2" value="Mumbai"> Mumbai<br><br>   <p><b>3️⃣ The biggest cause of Yamuna pollution is:</b></p>
+   <input type="radio" name="q3" value="Industrial waste"> Industrial waste<br>
+   <input type="radio" name="q3" value="Glaciers"> Glaciers<br>
+   <input type="radio" name="q3" value="Mountains"> Mountains<br><br>   <p><b>4️⃣ Which dam is on Yamuna?</b></p>
+   <input type="radio" name="q4" value="Hathni Kund"> Hathni Kund<br>
+   <input type="radio" name="q4" value="Tehri"> Tehri<br>
+   <input type="radio" name="q4" value="Bhakra"> Bhakra<br><br>   <p><b>5️⃣ Yamuna is the tributary of which river?</b></p>
+   <input type="radio" name="q5" value="Ganga"> Ganga<br>
+   <input type="radio" name="q5" value="Godavari"> Godavari<br>
+   <input type="radio" name="q5" value="Brahmaputra"> Brahmaputra<br><br>   <p><b>6️⃣ Which gas increases in water due to pollution?</b></p>
+   <input type="radio" name="q6" value="Ammonia"> Ammonia<br>
+   <input type="radio" name="q6" value="Oxygen"> Oxygen<br>
+   <input type="radio" name="q6" value="Helium"> Helium<br><br>   <p><b>7️⃣ Which holy city lies on Yamuna?</b></p>
+   <input type="radio" name="q7" value="Mathura"> Mathura<br>
+   <input type="radio" name="q7" value="Varanasi"> Varanasi<br>
+   <input type="radio" name="q7" value="Haridwar"> Haridwar<br><br>   <p><b>8️⃣ What should we NOT throw in river?</b></p>
+   <input type="radio" name="q8" value="Plastic"> Plastic<br>
+   <input type="radio" name="q8" value="Flowers"> Flowers<br>
+   <input type="radio" name="q8" value="Clay idols after dissolving"> Clay idols after dissolving<br><br>   <p><b>9️⃣ Which sector pollutes Yamuna the most?</b></p>
+   <input type="radio" name="q9" value="Sewage"> Sewage<br>
+   <input type="radio" name="q9" value="Fishing"> Fishing<br>
+   <input type="radio" name="q9" value="Tourism"> Tourism<br><br>   <p><b>🔟 Best solution to protect Yamuna?</b></p>
+   <input type="radio" name="q10" value="Sewage treatment plants"> Sewage treatment plants<br>
+   <input type="radio" name="q10" value="Ignore pollution"> Ignore pollution<br>
+   <input type="radio" name="q10" value="Throw more waste"> Throw more waste<br><br><button onclick="checkQuiz()">Submit Quiz ✅</button>
+
+   <div id="quizResult" class="result"></div>
+ </div>
+</div>
+ </div>
+</div><script>
+function showPage(id){
+ document.querySelectorAll('.section').forEach(sec=>sec.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+}
+
+function checkQuiz(){
+ let score=0;
+ if(document.querySelector('input[name="q1"]:checked')?.value === "Yamunotri") score++;
+ if(document.querySelector('input[name="q2"]:checked')?.value === "Mumbai") score++;
+ if(document.querySelector('input[name="q3"]:checked')?.value === "Industrial waste") score++;
+
+ document.getElementById("quizResult").innerHTML = `You scored ${score}/3 ⭐` + (score===3 ? "<br>Excellent! 🌟" : "<br>Keep learning! 😊");
+}
+</script><div id="ideas" class="section">
+ <h2>💡 Share Your Ideas to Save Yamuna</h2>
+ <div class="quiz-box">
+  <textarea id="userIdea" placeholder="Write your idea here..." style="width:100%;height:100px;border-radius:8px;padding:8px;"></textarea>
+  <button onclick="submitIdea()">Submit Idea 🌱</button>
+  <p id="ideaMsg" style="margin-top:10px;font-weight:600;"></p>
+ </div>
+</div>
+<script>
+function submitIdea(){
+ let idea=document.getElementById('userIdea').value;
+ if(idea.trim()==""){
+  document.getElementById('ideaMsg').innerText="⚠ Please enter an idea";
+  return;
+ }
+ document.getElementById('ideaMsg').innerText="✅ Thank you! Your idea will help save Yamuna!";
+ document.getElementById('userIdea').value="";
+}
+function checkQuiz(){
+ let correct=["Yamunotri","Mumbai","Industrial waste","Hathni Kund","Ganga","Ammonia","Mathura","Plastic","Sewage","Sewage treatment plants"];
+ let score=0;
+ for(let i=1;i<=10;i++){
+   if(document.querySelector(`input[name=q${i}]:checked`)?.value===correct[i-1]) score++;
+ }
+ document.getElementById("quizResult").innerHTML = `You scored ${score}/10 ⭐` + (score>=8 ? "<br>Excellent! 🌟" : "<br>Keep learning! 😊");
+}
+</script>
+</body>
+</html>
