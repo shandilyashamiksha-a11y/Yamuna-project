@@ -1,47 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You!</title>
-<style>
-  body {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-  p {
-    font-size: 18px;
-    margin-bottom: 25px;
-  }
-  a {
-    background: white;
-    color: #0077b6;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  a:hover {
-    background: #0077b6;
-    color: white;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You!</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #00b4d8, #0077b6, #03045e);
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 45px;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    p {
+      font-size: 20px;
+      margin-top: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .btn {
+      margin-top: 30px;
+      background: #ffb703;
+      color: #000;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    .btn:hover {
+      background: #fb8500;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 100%;
+      animation: wave 8s linear infinite;
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
 </head>
 <body>
-  <h1>🎉 Thank You!</h1>
-  <p>Your idea has been submitted successfully.<br>We appreciate your help in keeping the Yamuna clean! 💧</p>
-  <a href="index.html">⬅ Back to Home</a>
+  <h1>🌊 Thank You!</h1>
+  <p>Your idea for saving the Yamuna has been successfully submitted. 💧<br>
+  Together, we can make a cleaner, greener future!</p>
+
+  <a href="https://shandilyashamiksha-a11y.github.io/" class="btn">🏠 Go Back to Home</a>
+
+  <div class="wave"></div>
 </body>
 </html>
