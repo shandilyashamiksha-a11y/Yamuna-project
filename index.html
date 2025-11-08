@@ -126,11 +126,16 @@ function checkQuiz(){
  <h2>💡 Share Your Ideas to Save Yamuna</h2>
  <div class="quiz-box">
 <form action="https://formsubmit.co/shandilyashamiksha@gmail.com" method="POST">
-  <input type="hidden" name="_next" value="https://shandilyashamiksha-a11y.github.io/thankyou.html">
+  <!-- Redirect to thankyou.html after submission -->
+  <input type="hidden" name="_next" value="https://shandilyashamiksha-a11y.github.io/Yamuna-project/thankyou.html">
   <input type="hidden" name="_captcha" value="false">
 
-  <input type="text" name="name" placeholder="Your Name" required><br><br>
-  <textarea name="idea" placeholder="Share your idea..." required></textarea><br><br>
+  <label for="name">Your Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label for="idea">Your Idea to Help Save Yamuna:</label><br>
+  <textarea name="idea" rows="4" required placeholder="Share your idea..."></textarea><br><br>
+
   <button type="submit">Submit Idea</button>
 </form>
   <p id="ideaMsg" style="margin-top:10px;font-weight:600;"></p>
@@ -158,6 +163,7 @@ function checkQuiz(){
 </body>
 
 </html>
+
 
 
 
