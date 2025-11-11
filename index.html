@@ -4,74 +4,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yamuna Initiative</title>
 
-  <!-- Fancy fonts and styling -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      font-family: "Poppins", sans-serif;
-      color: white;
-      text-align: center;
-      margin: 0;
-    }
-
-    header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    h1, h2 {
-      color: #00e6e6;
-      text-shadow: 2px 2px 10px #000;
-    }
-
-    button, input[type="submit"] {
-      background: linear-gradient(45deg, #00b4d8, #0077b6);
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    button:hover, input[type="submit"]:hover {
-      background: linear-gradient(45deg, #48cae4, #0096c7);
-      transform: scale(1.05);
-    }
-
-    section {
-      background: rgba(0, 0, 0, 0.6);
-      margin: 30px auto;
-      padding: 20px;
-      width: 80%;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-
-    footer {
-      background: rgba(0,0,0,0.7);
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    body {
-      animation: fadeIn 2s ease-in;
-    }
-  </style>
+ <style>
+ body {
+   margin:0;
+   font-family: 'Poppins', sans-serif;
+   background: linear-gradient(120deg,#0d47a1,#1976d2,#42a5f5);
+   color:white;
+ }
+ header {
+   background: rgba(0,0,0,0.2);
+   padding:15px;
+   text-align:center;
+   font-size:24px;
+   font-weight:600;
+ }
+ nav {
+   display:flex;
+   justify-content:center;
+   gap:20px;
+   background:#003f7f;
+   padding:10px;
+ }
+ nav a {
+   color:white;
+   text-decoration:none;
+   font-weight:600;
+   padding:6px 12px;
+   border-radius:6px;
+   transition:0.3s;
+ }
+ nav a:hover { background:#ffca28; color:black; }
+ .section { padding:25px; display:none; }
+ .active { display:block; }
+ .quiz-box{
+  background:white;
+  color:black;
+  padding:20px;
+  border-radius:12px;
+  max-width:600px;
+  margin:0 auto;
+ }
+ button{
+  padding:10px 18px;
+  background:#ff9800;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  margin-top:12px;
+ }
+ button:hover{ background:#e65100; }
+ .result{font-size:20px;font-weight:700;margin-top:15px;}
+</style
 </head>
 <body>
 <header>🌊 YARI - Yamuna River Initiative</header>
@@ -185,6 +169,7 @@ function checkQuiz(){
 </body>
 
 </html>
+
 
 
 
