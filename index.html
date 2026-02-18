@@ -9,28 +9,6 @@
 :root{
     --blue:#003049;
     --river:#1d9bf0;
-    --light:#e6f6ff;
-}
-
-/* Only text & email inputs wide */
-.quiz-box input[type="text"],
-.quiz-box input[type="email"],
-.quiz-box textarea{
-    width: 90%;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.quiz-box textarea{
-    height: 120px;
-}
-
-/* Radio buttons normal */
-.quiz-box input[type="radio"]{
-    width:auto;
-    margin-right:8px;
 }
 
 *{
@@ -123,36 +101,6 @@ h2{
     border-radius:15px;
 }
 
-/* QUIZ */
-.quiz-box{
-  background:white;
-  padding:30px;
-  border-radius:15px;
-  max-width:800px;
-  margin:0 auto;
-  color:black;
-  text-align:left;
-}
-
-button{
-  padding:10px 18px;
-  background:var(--river);
-  color:white;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  margin-top:10px;
-}
-button:hover{
-  background:#003049;
-}
-
-.result{
-  font-size:20px;
-  font-weight:700;
-  margin-top:15px;
-}
-
 /* BROCHURE */
 .brochure-frame{
   width:80%;
@@ -162,7 +110,46 @@ button:hover{
   box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* FOOTER */
+/* QUIZ */
+.quiz-box{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  max-width:900px;
+  margin:0 auto;
+  color:black;
+  text-align:left;
+}
+
+button{
+  padding:12px 22px;
+  background:var(--river);
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:15px;
+  font-size:16px;
+}
+button:hover{
+  background:#003049;
+}
+
+/* BIGGER Share Ideas Inputs */
+#ideas input[type="text"],
+#ideas input[type="email"],
+#ideas textarea{
+    width: 95%;
+    padding: 22px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--river);
+}
+
+#ideas textarea{
+    height: 220px;
+}
+
 footer{
     background:var(--blue);
     color:white;
@@ -196,7 +183,7 @@ footer{
 <section id="about">
 <h2>What is YARI?</h2>
 <p>
-YARI stands for Yamuna River Initiative, a student-led movement focused on protecting and restoring the Yamuna River. Its main goal is to spread awareness about river pollution, encourage clean-up drives, and promote eco-friendly habits among students and the community.
+YARI stands for Yamuna River Initiative, a student-led movement focused on protecting and restoring the Yamuna River.
 </p>
 
 <div class="cards">
@@ -205,12 +192,11 @@ YARI stands for Yamuna River Initiative, a student-led movement focused on prote
 <div class="card">🎨 Awareness Posters</div>
 </div>
 
-<!-- BROCHURE ADDED HERE -->
 <center>
 <br><br>
 <h2>📘 YARI Brochure</h2>
 <iframe 
-src="YAMUNA_Broucher.pdf" 
+src="https://drive.google.com/file/d/1Fk3_7K6ARPFB472VdL-EkX3RzBHi30gI/preview"
 class="brochure-frame">
 </iframe>
 <br><br>
@@ -273,7 +259,7 @@ src="https://drive.google.com/embeddedfolderview?id=16nugBtM-NfkQhsvo9qE8T_t0w5O
 <input type="radio" name="q10" value="Increase pollution"> Increase pollution<br><br>
 
 <button onclick="checkQuiz()">Submit Quiz</button>
-<div id="quizResult" class="result"></div>
+<div id="quizResult"></div>
 
 </div>
 </section>
@@ -312,9 +298,9 @@ function checkQuiz(){
  if(document.querySelector('input[name="q10"]:checked')?.value==="Protect river") score++;
 
  document.getElementById("quizResult").innerHTML=
- "You scored "+score+"/10 ⭐";
+ "<br><b>You scored "+score+"/10 ⭐</b>";
 }
 </script>
 
 </body>
-    </html>
+</html>
