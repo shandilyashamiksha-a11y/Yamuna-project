@@ -1,205 +1,299 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YARI - Yamuna River Initiative</title>
+<title>YARI – Yamuna River Initiative</title>
+
 <style>
- body {
-   margin:0;
-   font-family: 'Poppins', sans-serif;
-   background: linear-gradient(120deg,#0d47a1,#1976d2,#42a5f5);
-   color:white;
- }
- header {
-   background: rgba(0,0,0,0.2);
-   padding:15px;
-   text-align:center;
-   font-size:24px;
-   font-weight:600;
- }
- nav {
-   display:flex;
-   justify-content:center;
-   gap:20px;
-   background:#003f7f;
-   padding:10px;
- }
- nav a {
-   color:white;
-   text-decoration:none;
-   font-weight:600;
-   padding:6px 12px;
-   border-radius:6px;
-   transition:0.3s;
- }
- nav a:hover { background:#ffca28; color:black; }
- .section { padding:25px; display:none; }
- .active { display:block; }
- .quiz-box{
+:root{
+    --blue:#003049;
+    --river:#1d9bf0;
+    --light:#e6f6ff;
+}
+
+/* Only text & email inputs wide */
+.quiz-box input[type="text"],
+.quiz-box input[type="email"],
+.quiz-box textarea{
+    width: 90%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.quiz-box textarea{
+    height: 120px;
+}
+
+/* Radio buttons normal */
+.quiz-box input[type="radio"]{
+    width:auto;
+    margin-right:8px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5fbff;
+    scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(0,48,73,0.9);
+    backdrop-filter:blur(8px);
+    padding:15px 30px;
+}
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+nav h2{
+    color:#fff;
+    letter-spacing:2px;
+}
+nav a{
+    color:#fff;
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+    url("https://static.india.com/wp-content/uploads/2022/09/Yamuna-river.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+.hero h1{ font-size:4rem; }
+.hero p{ margin-top:15px; font-size:1.4rem; }
+
+/* SECTIONS */
+section{
+    padding:100px 30px;
+    text-align:center;
+}
+h2{
+    font-size:2.5rem;
+    color:var(--blue);
+    margin-bottom:20px;
+}
+
+/* CARDS */
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+.card{
+    background:white;
+    padding:30px;
+    width:260px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* GALLERY */
+.gallery-frame{
+    width:100%;
+    height:650px;
+    border:none;
+    border-radius:15px;
+}
+
+/* QUIZ */
+.quiz-box{
   background:white;
-  color:black;
-  padding:20px;
-  border-radius:12px;
-  max-width:600px;
+  padding:30px;
+  border-radius:15px;
+  max-width:800px;
   margin:0 auto;
- }
- button{
+  color:black;
+  text-align:left;
+}
+
+button{
   padding:10px 18px;
-  background:#ff9800;
+  background:var(--river);
+  color:white;
   border:none;
   border-radius:6px;
   cursor:pointer;
-  font-weight:600;
-  margin-top:12px;
- }
- button:hover{ background:#e65100; }
- .result{font-size:20px;font-weight:700;margin-top:15px;}
+  margin-top:10px;
+}
+button:hover{
+  background:#003049;
+}
+
+.result{
+  font-size:20px;
+  font-weight:700;
+  margin-top:15px;
+}
+
+/* FOOTER */
+footer{
+    background:var(--blue);
+    color:white;
+    padding:30px;
+    text-align:center;
+}
 </style>
 </head>
+
 <body>
-<header>🌊 YARI - Yamuna River Initiative</header>
+
+<header>
 <nav>
- <a onclick="showPage('home')">Home</a>
- <a onclick="showPage('about')">About YARI</a>
- <a onclick="showPage('quiz')">Yamuna Quiz</a>
- <a onclick="showPage('ideas')">Share Ideas</a>
-</nav><div id="home" class="section active">
- <h2>Welcome to YARI!</h2>
- <p>Learn about Yamuna 🏞️ and participate in activities to keep it clean.Here, you can find out more about the causes of river pollution, the impacts of pollution on the environment, and easy ways to make a positive difference. From reducing the use of plastic, supporting clean up drives, and spreading awareness – every little counts!</p>
-</div><div id="about" class="section">
-<section id="about" style="
-  background: url('https://images.unsplash.com/photo-1608889175110-ef74f4b68a34?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-  padding: 60px 20px;
-  color: white;
-  text-align: center;
-  border-radius: 20px;
-  margin: 40px auto;
-  width: 85%;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-">
-  <h1 style="color: #00e6e6; font-size: 36px; text-shadow: 2px 2px 8px black;">About YARI</h1>
-  <p style="font-size: 18px; max-width: 800px; margin: 20px auto;">
-    <b>YARI</b> stands for <b>Yamuna River Initiative</b>.<br>
-    It is an initiative taken by <b>The Modern School</b> to acquaint children with the Yamuna River and help them
-    realize the legacy they will inherit. This project encourages students to understand the importance of keeping our
-    sacred river clean and sustainable for the future.
-  </p>
+<h2>YARI</h2>
+<div>
+<a href="#about">About</a>
+<a href="#gallery">Gallery</a>
+<a href="#quiz">Quiz</a>
+<a href="#ideas">Share Ideas</a>
+</div>
+</nav>
+</header>
 
+<section class="hero">
+<div>
+<h1>YAMUNA RIVER INITIATIVE</h1>
+<p>Modern School Faridabad</p>
+</div>
 </section>
-</div><div id="quiz" class="section">
- <h2>🧠 Yamuna River Quiz</h2>
- <div class="quiz-box">
-   <p><b>1️⃣ Where does the Yamuna originate from?</b></p>
-   <input type="radio" name="q1" value="Yamunotri"> Yamunotri<br>
-   <input type="radio" name="q1" value="Rishikesh"> Rishikesh<br>
-   <input type="radio" name="q1" value="Delhi"> Delhi<br><br>   <p><b>2️⃣ Which city does Yamuna NOT flow through?</b></p>
-   <input type="radio" name="q2" value="Agra"> Agra<br>
-   <input type="radio" name="q2" value="Mathura"> Mathura<br>
-   <input type="radio" name="q2" value="Mumbai"> Mumbai<br><br>   <p><b>3️⃣ The biggest cause of Yamuna pollution is:</b></p>
-   <input type="radio" name="q3" value="Industrial waste"> Industrial waste<br>
-   <input type="radio" name="q3" value="Glaciers"> Glaciers<br>
-   <input type="radio" name="q3" value="Mountains"> Mountains<br><br>   <p><b>4️⃣ Which dam is on Yamuna?</b></p>
-   <input type="radio" name="q4" value="Hathni Kund"> Hathni Kund<br>
-   <input type="radio" name="q4" value="Tehri"> Tehri<br>
-   <input type="radio" name="q4" value="Bhakra"> Bhakra<br><br>   <p><b>5️⃣ Yamuna is the tributary of which river?</b></p>
-   <input type="radio" name="q5" value="Ganga"> Ganga<br>
-   <input type="radio" name="q5" value="Godavari"> Godavari<br>
-   <input type="radio" name="q5" value="Brahmaputra"> Brahmaputra<br><br>   <p><b>6️⃣ Which gas increases in water due to pollution?</b></p>
-   <input type="radio" name="q6" value="Ammonia"> Ammonia<br>
-   <input type="radio" name="q6" value="Oxygen"> Oxygen<br>
-   <input type="radio" name="q6" value="Helium"> Helium<br><br>   <p><b>7️⃣ Which holy city lies on Yamuna?</b></p>
-   <input type="radio" name="q7" value="Mathura"> Mathura<br>
-   <input type="radio" name="q7" value="Varanasi"> Varanasi<br>
-   <input type="radio" name="q7" value="Haridwar"> Haridwar<br><br>   <p><b>8️⃣ What should we NOT throw in river?</b></p>
-   <input type="radio" name="q8" value="Plastic"> Plastic<br>
-   <input type="radio" name="q8" value="Flowers"> Flowers<br>
-   <input type="radio" name="q8" value="Clay idols after dissolving"> Clay idols after dissolving<br><br>   <p><b>9️⃣ Which sector pollutes Yamuna the most?</b></p>
-   <input type="radio" name="q9" value="Sewage"> Sewage<br>
-   <input type="radio" name="q9" value="Fishing"> Fishing<br>
-   <input type="radio" name="q9" value="Tourism"> Tourism<br><br>   <p><b>🔟 Best solution to protect Yamuna?</b></p>
-   <input type="radio" name="q10" value="Sewage treatment plants"> Sewage treatment plants<br>
-   <input type="radio" name="q10" value="Ignore pollution"> Ignore pollution<br>
-   <input type="radio" name="q10" value="Throw more waste"> Throw more waste<br><br><button onclick="checkQuiz()">Submit Quiz ✅</button>
 
-   <div id="quizResult" class="result"></div>
- </div>
+<section id="about">
+<h2>What is YARI?</h2>
+<p>
+YARI stands for Yamuna River Initiative, a student-led movement focused on protecting and restoring the Yamuna River. Its main goal is to spread awareness about river pollution, encourage clean-up drives, and promote eco-friendly habits among students and the community. The Yamuna River is one of India’s most important rivers and a major tributary of the Ganga River, but it faces serious pollution problems, especially in Delhi. Through activities like awareness campaigns, creative projects, and educational programs, YARI aims to inspire young people to take responsibility and work together to preserve this vital river for future generations.
+</p>
+
+<div class="cards">
+<div class="card">🌊 River Clean-Up Drives</div>
+<div class="card">🎙 Student Podcasts</div>
+<div class="card">🎨 Awareness Posters</div>
 </div>
- </div>
-</div><script>
-function showPage(id){
- document.querySelectorAll('.section').forEach(sec=>sec.classList.remove('active'));
- document.getElementById(id).classList.add('active');
-}
+</section>
 
-function checkQuiz(){
- let score=0;
- if(document.querySelector('input[name="q1"]:checked')?.value === "Yamunotri") score++;
- if(document.querySelector('input[name="q2"]:checked')?.value === "Mumbai") score++;
- if(document.querySelector('input[name="q3"]:checked')?.value === "Industrial waste") score++;
+<section id="gallery">
+<h2>📸 YARI Media Gallery</h2>
+<center>
+<iframe 
+class="gallery-frame"
+src="https://drive.google.com/embeddedfolderview?id=16nugBtM-NfkQhsvo9qE8T_t0w5OREYDi#grid">
+</iframe>
+</center>
+</section>
 
- document.getElementById("quizResult").innerHTML = `You scored ${score}/3 ⭐` + (score===3 ? "<br>Excellent! 🌟" : "<br>Keep learning! 😊");
-}
-</script><div id="ideas" class="section">
- <h2>💡 Share Your Ideas to Save Yamuna</h2>
- <div class="quiz-box">
+<section id="quiz">
+<h2>🧠 Yamuna River Quiz</h2>
+<div class="quiz-box">
+
+<p><b>1. Where does Yamuna originate?</b></p>
+<input type="radio" name="q1" value="Yamunotri"> Yamunotri<br>
+<input type="radio" name="q1" value="Delhi"> Delhi<br><br>
+
+<p><b>2. Which river is Yamuna a tributary of?</b></p>
+<input type="radio" name="q2" value="Ganga"> Ganga<br>
+<input type="radio" name="q2" value="Godavari"> Godavari<br><br>
+
+<p><b>3. Which city faces major Yamuna pollution?</b></p>
+<input type="radio" name="q3" value="Delhi"> Delhi<br>
+<input type="radio" name="q3" value="Mumbai"> Mumbai<br><br>
+
+<p><b>4. Main cause of pollution?</b></p>
+<input type="radio" name="q4" value="Industrial waste"> Industrial waste<br>
+<input type="radio" name="q4" value="Mountain snow"> Mountain snow<br><br>
+
+<p><b>5. Yamuna flows through which state?</b></p>
+<input type="radio" name="q5" value="Uttar Pradesh"> Uttar Pradesh<br>
+<input type="radio" name="q5" value="Kerala"> Kerala<br><br>
+
+<p><b>6. Which festival increases waste in rivers?</b></p>
+<input type="radio" name="q6" value="Durga Puja"> Durga Puja<br>
+<input type="radio" name="q6" value="Christmas"> Christmas<br><br>
+
+<p><b>7. Eco-friendly habit to protect rivers?</b></p>
+<input type="radio" name="q7" value="Reduce plastic"> Reduce plastic<br>
+<input type="radio" name="q7" value="Throw garbage"> Throw garbage<br><br>
+
+<p><b>8. Yamuna meets Ganga at?</b></p>
+<input type="radio" name="q8" value="Prayagraj"> Prayagraj<br>
+<input type="radio" name="q8" value="Chennai"> Chennai<br><br>
+
+<p><b>9. YARI is led by?</b></p>
+<input type="radio" name="q9" value="Students"> Students<br>
+<input type="radio" name="q9" value="Factories"> Factories<br><br>
+
+<p><b>10. Goal of YARI?</b></p>
+<input type="radio" name="q10" value="Protect river"> Protect river<br>
+<input type="radio" name="q10" value="Increase pollution"> Increase pollution<br><br>
+
+<button onclick="checkQuiz()">Submit Quiz</button>
+<div id="quizResult" class="result"></div>
+
+</div>
+</section>
+
+<section id="ideas">
+<h2>💡 Share Your Ideas</h2>
+<div class="quiz-box">
+<center>
 <form action="https://formsubmit.co/shandilyashamiksha@gmail.com" method="POST">
-  <!-- Redirect to thankyou.html after submission -->
-  <input type="hidden" name="_next" value="https://shandilyashamiksha-a11y.github.io/Yamuna-project/thankyou.html">
-  <input type="hidden" name="_captcha" value="false">
-
-  <h2>💡 Share Your Ideas to Save Yamuna</h2>
-
-  <label for="name">Your Name:</label><br>
-  <input type="text" name="name" placeholder="Enter your name" required><br><br>
-
-  <label for="email">Your Email:</label><br>
-  <input type="email" name="email" placeholder="Enter your email" required><br><br>
-
-  <label for="idea">Your Idea:</label><br>
-  <textarea name="idea" rows="4" placeholder="Write your idea here..." required></textarea><br><br>
-
-  <button type="submit">Submit Idea</button>
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="name" placeholder="Your Name" required><br><br>
+<input type="email" name="email" placeholder="Your Email" required><br><br>
+<textarea name="idea" placeholder="Write your idea..." required></textarea><br><br>
+<button type="submit">Submit Idea</button>
 </form>
-  <p id="ideaMsg" style="margin-top:10px;font-weight:600;"></p>
- </div>
+</center>
 </div>
+</section>
+
+<footer>
+<p>© 2026 YARI | Modern School Faridabad</p>
+</footer>
+
 <script>
-function submitIdea(){
- let idea=document.getElementById('userIdea').value;
- if(idea.trim()==""){
-  document.getElementById('ideaMsg').innerText="⚠ Please enter an idea";
-  return;
- }
- document.getElementById('ideaMsg').innerText="✅ Thank you! Your idea will help save Yamuna!";
- document.getElementById('userIdea').value="";
-}
 function checkQuiz(){
- let correct=["Yamunotri","Mumbai","Industrial waste","Hathni Kund","Ganga","Ammonia","Mathura","Plastic","Sewage","Sewage treatment plants"];
  let score=0;
- for(let i=1;i<=10;i++){
-   if(document.querySelector(`input[name=q${i}]:checked`)?.value===correct[i-1]) score++;
- }
- document.getElementById("quizResult").innerHTML = `You scored ${score}/10 ⭐` + (score>=8 ? "<br>Excellent! 🌟" : "<br>Keep learning! 😊");
+ if(document.querySelector('input[name="q1"]:checked')?.value==="Yamunotri") score++;
+ if(document.querySelector('input[name="q2"]:checked')?.value==="Ganga") score++;
+ if(document.querySelector('input[name="q3"]:checked')?.value==="Delhi") score++;
+ if(document.querySelector('input[name="q4"]:checked')?.value==="Industrial waste") score++;
+ if(document.querySelector('input[name="q5"]:checked')?.value==="Uttar Pradesh") score++;
+ if(document.querySelector('input[name="q6"]:checked')?.value==="Durga Puja") score++;
+ if(document.querySelector('input[name="q7"]:checked')?.value==="Reduce plastic") score++;
+ if(document.querySelector('input[name="q8"]:checked')?.value==="Prayagraj") score++;
+ if(document.querySelector('input[name="q9"]:checked')?.value==="Students") score++;
+ if(document.querySelector('input[name="q10"]:checked')?.value==="Protect river") score++;
+
+ document.getElementById("quizResult").innerHTML=
+ "You scored "+score+"/10 ⭐";
 }
 </script>
+
 </body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ </html>
